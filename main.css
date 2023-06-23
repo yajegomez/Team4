@@ -330,6 +330,8 @@ input.invalid {
 .restaurant-info {
   padding: 10px;
   margin-top: 10px;
+  height: 160px;
+  overflow: auto;
 }
 
 /* category modal */
@@ -349,8 +351,7 @@ input.invalid {
 
 .swiper-slide {
   flex-shrink: 0;
-  width: 300px; 
-
+  width: 300px;
 }
 
 .swiper-pagination {
@@ -386,20 +387,18 @@ input.invalid {
 
 .newmodal-content {
   background-color: #fefefe;
-  
   margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
-  
- 
-  
+  overflow: auto;
+  position: relative;
 }
 
 .close {
   color: #aaa;
-  position: relative;
-  top: 10px;
-  right: 15px;
+  position: absolute;
+  top: 0;
+  right: 25px;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -410,7 +409,7 @@ input.invalid {
 #categoryRestaurantList {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 20px auto;
 }
 
 #categoryRestaurantList li {
@@ -495,6 +494,36 @@ input.invalid {
   color: #ffd700; 
 }
 
+#categoryTitle{
+  font-size:50px;
+  font-style:italic;
+  text-transform: capitalize;
+  letter-spacing: 9px;
+}
+
 .star.empty {
   color: #ccc; 
+}
+
+@media only screen and (max-width: 900px) {
+  .swiper-wrapper {
+    display: table;
+  }
+  .swiper-slide {
+    width: 300px; 
+    display:block;
+  }
+  .swiper-slide:after {
+    padding:10px;
+    content:"";
+  }
+  .close {
+      color: #aaa;
+      position: absolute;
+      top: 50px;
+      right: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+  }
 }
