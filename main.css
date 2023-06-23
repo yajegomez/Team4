@@ -188,7 +188,7 @@ input.invalid {
   height: 400px;
   overflow: hidden;
   align-items: center;
- 
+ position:relative;
 }
 
 #slotmachine ul li {
@@ -503,6 +503,21 @@ input.invalid {
 
 .star.empty {
   color: #ccc; 
+}
+
+
+#slotmachine #spinner{
+  width: 90%;
+  height: 200px;
+  position:absolute;
+  top:0;
+}
+
+#slotmachine #spinner > *{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
 }
 
 @media only screen and (max-width: 900px) {
