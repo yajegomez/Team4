@@ -142,9 +142,8 @@ function initialize() {
 let elem = document.getElementById('autocomplete_search');
 
 elem.addEventListener("keydown", function (event) 
-                      {if (event.keyCode == 13) {
-       alert('what');
-    }
+                      {if (event.keyCode == 13) {openModal();
+    };
     // The parameter event is of the type KeyboardEvent
   	addRow(event);
 });
