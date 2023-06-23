@@ -559,6 +559,9 @@ function showCategoryRestaurantsModal(category) {
     console.error("Geolocation is not supported by this browser.");
   }
 }
+function generatePagination(a,b)
+{
+}
 function closeCategoryModal() {
   const modal = document.getElementById("categoryModal");
   modal.style.display = "none";
