@@ -506,14 +506,14 @@ input.invalid {
 }
 
 
-#slotmachine #spinner{
+#slotmachine .spinner{
   width: 90%;
   height: 200px;
   position:absolute;
   top:0;
 }
 
-#slotmachine #spinner > *{
+#slotmachine .spinner > *{
   position:absolute;
   top:50%;
   left:50%;
