@@ -261,9 +261,9 @@ function displayRestaurantList(restaurants) {
     listItem.classList.add("randomizer-card", "restaurant-item");
     
     let divWarp = document.createElement("div");
-    $(divWarp).setAttribute("id", "spinner");
+    divWarp.setAttribute("id", "spinner");
     divWarp.innerHtml='<div class="lds-ripple"><div></div><div></div></div>';
-    divWarp.classList.add("test");
+    divWarp.classList.add("test","test2");
     
     let image = document.createElement("img");
     image.src =
