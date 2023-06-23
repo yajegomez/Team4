@@ -115,8 +115,9 @@ let autocomplete;
 let interval;
 let spinCount = 0;
 let showCategoryButton = false;
-
+$(function() {
 google.maps.event.addEventListener("load", initialize);
+});
 
 function initialize() {
   let input = document.getElementById("autocomplete_search");
