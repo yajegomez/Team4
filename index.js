@@ -185,13 +185,12 @@ function openModal() {
   clearInterval(interval);
 
   let startButton = document.getElementById("start");
-  let spinner = document.getElementById("spinner");
   let categoryButton = document.getElementById("categoryButton");
   let messageCard = document.querySelector("#messageCard");
 
   // Enable the start button and hide the spinner
   startButton.disabled = false;
-  spinner.style.display = "none";
+  $(".spinner").css("display","none");
 
   if (spinCount === 4) {
     showCategoryButton = true;
@@ -260,7 +259,7 @@ function displayRestaurantList(restaurants) {
     let listItem = document.createElement("li");
     listItem.classList.add("randomizer-card", "restaurant-item");
     
-    let divWarp = document.createElement("div",{id:"spinner"},'<div class="lds-ripple"><div></div><div></div></div>');
+    let divWarp = document.createElement("div",{class:"spinner"},'<div class="lds-ripple"><div></div><div></div></div>');
     //divWarp.classList.add("test","test2");
     
     let image = document.createElement("img");
@@ -333,7 +332,6 @@ function getOpeningHours(restaurant) {
 function startSpinner() {
   let restaurantList = document.querySelectorAll(".randomizer-card");
   let startButton = document.getElementById("start");
-  let spinner = document.getElementById("spinner");
 
   // Filter out the already displayed restaurants
   let availableRestaurants = Array.from(restaurantList).filter(
@@ -376,7 +374,7 @@ function startSpinner() {
     }, 200); // Adjust the duration as needed
 
     startButton.disabled = true;
-    spinner.style.display = "inline-block"; // Show the spinner
+    $(".spinner").css("display","block");
   }
 }
 
@@ -385,13 +383,12 @@ function showLastSpinMessage() {
   let messageText = document.querySelector("#messageText");
   let categoryButton = document.querySelector("#categoryButton");
   let startButton = document.querySelector("#start");
-  let spinner = document.getElementById("spinner");
+  $(".spinner").css("display","none");
 
   messageText.textContent = "You have reached the maximum number of spins.";
   categoryButton.style.display = "block"; // Show the category button
   messageCard.style.display = "block";
   startButton.disabled = true;
-  spinner.style.display = "none"; // Hide the spinner
 
   // Show the message card only on the 5th click
   if (spinCount === 5) {
