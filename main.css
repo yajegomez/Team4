@@ -47,7 +47,7 @@
   display: block;
   width: 100%;
   height: auto;
-  max-height: 240px;
+  max-height: 500px;
   object-fit: cover;
   margin-bottom: 5%;
 }
