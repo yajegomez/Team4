@@ -1,7 +1,7 @@
 /*------*/
 // Get the modal element
 let modal = document.getElementById("welcomeModal");
-
+console.log("Hello world!");
 // Get the <span> element that closes the modal
 let closeBtn = document.querySelector(".close");
 
