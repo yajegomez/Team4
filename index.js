@@ -17,18 +17,18 @@ let imageFilePaths = [
 ];
 
 // Open the modal when the page loads
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     modal.style.display = "block";
     displayRandomImage();
 });
 
 // Close the modal when the close button is clicked
-closeBtn.addEventListener("click", function() {
+closeBtn.addEventListener("click", function () {
     modal.style.display = "none";
 });
 
 // Close the modal when the user clicks outside of it
-window.addEventListener("click", function(event) {
+window.addEventListener("click", function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
@@ -115,7 +115,7 @@ let autocomplete;
 let interval;
 let spinCount = 0;
 let showCategoryButton = false;
-$(function() {
+$(function () {
     window.addEventListener("load", initialize);
     // Add an event listener to the close button or any other element that triggers the modal closing action
     const closeButton = document.getElementById("closeButton");
@@ -268,8 +268,8 @@ function displayRestaurantList(restaurants) {
         let image = document.createElement("img");
         image.src =
             restaurants[i].photos && restaurants[i].photos.length > 0 ?
-            restaurants[i].photos[0].getUrl({ maxWidth: 400, maxHeight: 300 }) :
-            "images/not.png";
+                restaurants[i].photos[0].getUrl({ maxWidth: 400, maxHeight: 300 }) :
+                "images/not.png";
         image.alt = "Restaurant Image";
         image.classList.add("randomizer-image", "restaurant-image");
 
@@ -296,9 +296,8 @@ function displayRestaurantList(restaurants) {
         address.textContent = `Address: ${restaurant.vicinity || "N/A"}`;
 
         let openingHours = document.createElement("p");
-        openingHours.textContent = `Opening Hours: ${
-      getOpeningHours(restaurant) || "Not Available"
-    }`;
+        openingHours.textContent = `Opening Hours: ${getOpeningHours(restaurant) || "Not Available"
+            }`;
 
         let website = document.createElement("a");
         website.textContent = "Website";
@@ -404,7 +403,7 @@ function showLastSpinMessage() {
 // Add event listener to the categoryButton
 document
     .getElementById("categoryButton")
-    .addEventListener("click", function() {
+    .addEventListener("click", function () {
         document.getElementById("category").scrollIntoView({ behavior: "smooth" });
 
         // Close the modal
@@ -446,51 +445,50 @@ function showCategoryRestaurantsModal(category) {
     // Get user's current location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
+            (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
 
-                    // Create a new Places service object
-                    const placesService = new google.maps.places.PlacesService(
-                        document.createElement("div")
-                    );
+                // Create a new Places service object
+                const placesService = new google.maps.places.PlacesService(
+                    document.createElement("div")
+                );
 
-                    // Define the request parameters for nearby search
-                    const request = {
-                        location: new google.maps.LatLng(latitude, longitude),
-                        radius: 500, // Define the radius for nearby search (in meters)
-                        type: "restaurant",
-                        keyword: category,
-                    };
+                // Define the request parameters for nearby search
+                const request = {
+                    location: new google.maps.LatLng(latitude, longitude),
+                    radius: 500, // Define the radius for nearby search (in meters)
+                    type: "restaurant",
+                    keyword: category,
+                };
 
-                    // Perform the nearby search
-                    placesService.nearbySearch(request, (results, status) => {
-                                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                                    const restaurants = results.map((result) => ({
-                                        name: result.name,
-                                        rating: result.rating,
-                                        address: result.vicinity,
-                                        openingHours: result.opening_hours ? .weekday_text || [],
-                                        photo: result.photos ? .[0] ? .getUrl() || "",
-                                    }));
+                // Perform the nearby search
+                placesService.nearbySearch(request, (results, status) => {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        const restaurants = results.map((result) => ({
+                            name: result.name,
+                            rating: result.rating,
+                            address: result.vicinity,
+                            openingHours: result.opening_hours?.weekday_text || [],
+                            photo: result.photos?.[0]?.getUrl() || "",
+                        }));
 
-                                    const totalResults = results.length;
+                        const totalResults = results.length;
 
-                                    // Clear previous restaurant list
-                                    restaurantList.innerHTML = "";
+                        // Clear previous restaurant list
+                        restaurantList.innerHTML = "";
 
-                                    // Populate the swiper slides
-                                    restaurants.forEach((restaurant) => {
-                                                const swiperSlide = document.createElement("div");
-                                                swiperSlide.classList.add("swiper-slide", "restaurant-slide");
+                        // Populate the swiper slides
+                        restaurants.forEach((restaurant) => {
+                            const swiperSlide = document.createElement("div");
+                            swiperSlide.classList.add("swiper-slide", "restaurant-slide");
 
-                                                // Check if the restaurant photo is available
-                                                const restaurantImage =
-                                                    restaurant.photo || getDefaultImage(restaurant.category);
+                            // Check if the restaurant photo is available
+                            const restaurantImage =
+                                restaurant.photo || getDefaultImage(restaurant.category);
 
-                                                // Create the restaurant details HTML
-                                                const restaurantDetails = `
-              <div class="card">
+                            // Create the restaurant details HTML
+                            const restaurantDetails = `<div class="card">
                 <img src="${restaurantImage}" alt="${restaurant.name}" class="restaurant-image">
                 <div class="restaurant-info">
                   <h3>${restaurant.name}</h3>
@@ -506,67 +504,66 @@ function showCategoryRestaurantsModal(category) {
               </div>
             `;
 
-              swiperSlide.innerHTML = restaurantDetails;
-              swiperWrapper.appendChild(swiperSlide);
-            });
+                            swiperSlide.innerHTML = restaurantDetails;
+                            swiperWrapper.appendChild(swiperSlide);
+                        });
 
 
-            function getStarRating(rating) {
-              const filledStars = Math.floor(rating);
-              const remainingStars = 5 - filledStars;
-              let starRatingHTML = '';
+                        function getStarRating(rating) {
+                            const filledStars = Math.floor(rating);
+                            const remainingStars = 5 - filledStars;
+                            let starRatingHTML = '';
 
-              // Add filled stars
-              for (let i = 0; i < filledStars; i++) {
-                starRatingHTML += '<span class="star filled">&#9733;</span>';
-              }
+                            // Add filled stars
+                            for (let i = 0; i < filledStars; i++) {
+                                starRatingHTML += '<span class="star filled">&#9733;</span>';
+                            }
 
-              // Add empty stars
-              for (let i = 0; i < remainingStars; i++) {
-                starRatingHTML += '<span class="star empty">&#9734;</span>';
-              }
+                            // Add empty stars
+                            for (let i = 0; i < remainingStars; i++) {
+                                starRatingHTML += '<span class="star empty">&#9734;</span>';
+                            }
 
-              return starRatingHTML;
+                            return starRatingHTML;
+                        }
+
+                        // Function to get the default image based on category
+                        function getDefaultImage() {
+                            return "images/not.png";
+                        }
+
+                        // Append the swiper wrapper to the swiper container
+                        swiperContainer.appendChild(swiperWrapper);
+                        // Append the swiper container to the restaurant list element
+                        restaurantList.appendChild(swiperContainer);
+
+                        // Initialize Swiper.js
+                        new Swiper(".restaurant-swiper", {
+                            slidesPerView: "auto",
+                            spaceBetween: 10,
+                            scrollbar: {
+                                el: ".swiper-scrollbar",
+                                hide: true,
+                            },
+                        });
+                        // Generate pagination buttons
+                        generatePagination(totalResults, pageSize);
+                    } else {
+                        console.error("Error fetching nearby restaurants:", status);
+                    }
+                });
+            },
+            (error) => {
+                console.error("Error getting user location:", error);
             }
-
-            // Function to get the default image based on category
-            function getDefaultImage() {
-              return "images/not.png";
-            }
-
-            // Append the swiper wrapper to the swiper container
-            swiperContainer.appendChild(swiperWrapper);
-            // Append the swiper container to the restaurant list element
-            restaurantList.appendChild(swiperContainer);
-
-            // Initialize Swiper.js
-            new Swiper(".restaurant-swiper", {
-              slidesPerView: "auto",
-              spaceBetween: 10,
-              scrollbar: {
-                el: ".swiper-scrollbar",
-                hide: true,
-              },
-            });
-            // Generate pagination buttons
-            generatePagination(totalResults, pageSize);
-          } else {
-            console.error("Error fetching nearby restaurants:", status);
-          }
-        });
-      },
-      (error) => {
-        console.error("Error getting user location:", error);
-      }
-    );
-  } else {
-    console.error("Geolocation is not supported by this browser.");
-  }
+        );
+    } else {
+        console.error("Geolocation is not supported by this browser.");
+    }
 }
-function generatePagination(a,b)
-{
+function generatePagination(a, b) {
 }
 function closeCategoryModal() {
-  const modal = document.getElementById("categoryModal");
-  modal.style.display = "none";
+    const modal = document.getElementById("categoryModal");
+    modal.style.display = "none";
 }
