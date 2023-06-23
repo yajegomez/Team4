@@ -259,7 +259,12 @@ function displayRestaurantList(restaurants) {
 
     let listItem = document.createElement("li");
     listItem.classList.add("randomizer-card", "restaurant-item");
-
+    
+    let divWarp = document.createElement("div");
+    $(divWarp).setAttribute("id", "spinner");
+    divWarp.innerHtml='<div class="lds-ripple"><div></div><div></div></div>';
+    divWarp.classList.add("test");
+    
     let image = document.createElement("img");
     image.src =
       restaurants[i].photos && restaurants[i].photos.length > 0
