@@ -468,11 +468,11 @@ input.invalid {
 
 
 .bx.bx-search {
-  font-size: 32px; 
+  font-size: 32px;
   color: #000;
-   margin-left: -50px; 
-   position: relative; 
-   margin-top:10px;
+  margin-left: -50px;
+  position: relative;
+  margin-top: 3px;
 }
 .logo1 {
   width: 10rem; 
