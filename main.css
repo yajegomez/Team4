@@ -178,7 +178,6 @@ input.invalid {
   padding-right: 30px;
   width: 50%;
   max-width: 400px;
-  
 } 
 
 
@@ -523,6 +522,12 @@ input.invalid {
 .input-group-append{
   cursor:pointer;
 } 
+
+.categorySection:after{
+  content:"";
+  padding:100px 0;
+  display:block;
+}
 
 @media only screen and (max-width: 900px) {
   .swiper-wrapper {
