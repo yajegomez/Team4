@@ -16,23 +16,6 @@ let imageFilePaths = [
   // Add more image file paths as needed
 ];
 
-// Open the modal when the page loads
-window.addEventListener("load", function () {
-  modal.style.display = "block";
-  displayRandomImage();
-});
-
-// Close the modal when the close button is clicked
-closeBtn.addEventListener("click", function () {
-  modal.style.display = "none";
-});
-
-// Close the modal when the user clicks outside of it
-window.addEventListener("click", function (event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-});
 
 // Display a random image in the modal
 function displayRandomImage() {
@@ -116,6 +99,25 @@ let interval;
 let spinCount = 0;
 let showCategoryButton = false;
 $(function() {
+    
+  // Open the modal when the page loads
+  window.addEventListener("load", function () {
+    modal.style.display = "block";
+    displayRandomImage();
+  });
+  
+  // Close the modal when the close button is clicked
+  closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+  
+  // Close the modal when the user clicks outside of it
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+  
   window.addEventListener("load", initialize);
   // Add an event listener to the close button or any other element that triggers the modal closing action
   const closeButton = document.getElementById("closeButton");
