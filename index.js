@@ -119,7 +119,9 @@ $(function() {
   window.addEventListener("load", initialize);
   // Add an event listener to the close button or any other element that triggers the modal closing action
   const closeButton = document.getElementById("closeButton");
-  closeButton.addEventListener("click", closeCategoryRestaurantsModal);
+  if(closeButton!=undefined){
+    closeButton.addEventListener("click", closeCategoryRestaurantsModal);
+  }
 });
 
 function initialize() {
