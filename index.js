@@ -317,6 +317,7 @@ function displayRestaurantList(restaurants) {
     detailsDiv.appendChild(website);
 
     listItem.appendChild(image);
+    listItem.appendChild(divWarp);
     listItem.appendChild(detailsDiv);
     restaurantList.appendChild(listItem);
   }
