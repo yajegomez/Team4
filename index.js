@@ -1,7 +1,6 @@
 /*------*/
 // Get the modal element
 let modal = document.getElementById("welcomeModal");
-console.log("Hello world!");
 // Get the <span> element that closes the modal
 let closeBtn = document.querySelector(".close");
 
@@ -117,7 +116,7 @@ let interval;
 let spinCount = 0;
 let showCategoryButton = false;
 
-google.maps.event.addDomListener(window, "load", initialize);
+google.maps.event.addEventListener(window, "load", initialize);
 
 function initialize() {
   let input = document.getElementById("autocomplete_search");
