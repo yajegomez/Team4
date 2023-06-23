@@ -116,7 +116,7 @@ let interval;
 let spinCount = 0;
 let showCategoryButton = false;
 $(function() {
-  google.maps.addEventListener("load", initialize);
+  $("#category").addEventListener("load", initialize);
   // Add an event listener to the close button or any other element that triggers the modal closing action
   const closeButton = document.getElementById("closeButton");
   closeButton.addEventListener("click", closeCategoryRestaurantsModal);
