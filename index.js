@@ -139,6 +139,17 @@ function initialize() {
     }
 }
 
+let elem = document.getElementById('autocomplete_search');
+
+elem.addEventListener("keydown", function (event) 
+                      {if (event.keyCode == 13) {
+       alert('what');
+    }
+    // The parameter event is of the type KeyboardEvent
+  	addRow(event);
+});
+
+
 function validateSearch() {
     let place = autocomplete.getPlace();
     let inputElement = document.getElementById("autocomplete_search");
