@@ -134,7 +134,9 @@ function initialize() {
   searchButton.addEventListener("click", openModal, validateSearch);
 
   let closeButton = document.getElementById("close_button");
-  closeButton.addEventListener("click", closeModal);
+  if(closeButton!=undefined){
+    closeButton.addEventListener("click", closeModal);
+  }
 }
 function validateSearch() {
   let place = autocomplete.getPlace();
