@@ -49,6 +49,7 @@
   height: auto;
   max-height: 240px;
   object-fit: cover;
+  margin-bottom: 5%;
 }
 
 .welcomeForm {
