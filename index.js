@@ -260,6 +260,8 @@ function displayRestaurantList(restaurants) {
     listItem.classList.add("randomizer-card", "restaurant-item");
     
     let divWarp = document.createElement("div",{class:"spinner"},'<div class="lds-ripple"><div></div><div></div></div>');
+    $(divWarp).addClass("spinner").css("display","none");
+    $(divWarp).html('<div class="lds-ripple"><div></div><div></div></div>');
     //divWarp.classList.add("test","test2");
     
     let image = document.createElement("img");
