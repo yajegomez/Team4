@@ -231,6 +231,7 @@ function fetchRestaurants(lat, lng) {
 
     service.nearbySearch(request, (results, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
+        console.log(results);
         resolve(results);
       } else {
         reject(
