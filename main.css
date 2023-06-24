@@ -30,7 +30,7 @@
 }
 
 .close {
-  color: #888;
+  color: #efebeb;
   float: right;
   font-size: 24px;
   font-weight: bold;
@@ -394,7 +394,7 @@ input.invalid {
 }
 
 .close {
-  color: #aaa;
+  color: #efebeb;
   position: absolute;
   top: 0;
   right: 25px;
