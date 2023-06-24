@@ -542,7 +542,7 @@ input.invalid {
     content:"";
   }
   .close {
-      color: #aaa;
+      color: #ede7e7;
       position: absolute;
       top: 50px;
       right: 25px;
